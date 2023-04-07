@@ -171,3 +171,4 @@ with gr.Blocks(css='style.css') as demo:
     run_button.click(fn=pipe.run, inputs=inputs, outputs=result)
 
 demo.queue().launch()
+# demo.queue().launch(share=False, server_name='0.0.0.0', server_port=7890)
