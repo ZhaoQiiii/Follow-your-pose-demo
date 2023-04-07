@@ -4,7 +4,7 @@ from FollowYourPose.test_followyourpose import *
 import copy
 import gradio as gr
 from transformers import AutoTokenizer, CLIPTextModel
-
+from huggingface_hub import hf_hub_download
 
 def get_time_string() -> str:
     x = datetime.datetime.now()
