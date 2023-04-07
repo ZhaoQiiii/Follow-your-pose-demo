@@ -174,11 +174,12 @@ def test(
             sample = validation_pipeline(prompt, generator=generator, latents=ddim_inv_latent,
                                         skeleton_path=skeleton_path,
                                         **validation_data).videos
-            save_videos_grid(sample, f"{output_dir}/inference/sample-{global_step}-{str(seed)}-{now}/{prompt}.gif")
-            samples.append(sample)
-        samples = torch.concat(samples)
-        save_path = f"{output_dir}/inference/sample-{global_step}-{str(seed)}-{now}.mp4"
-        save_videos_grid(samples, save_path)
+            save_path = f"{output_dir}/inference/sample-{global_step}-{str(seed)}-{now}/{prompt}.gif"
+            save_videos_grid(sample, save_path)
+        #     samples.append(sample)
+        # samples = torch.concat(samples)
+        # save_path = f"{output_dir}/inference/sample-{global_step}-{str(seed)}-{now}.mp4"
+        # save_videos_grid(samples, save_path)
         logger.info(f"Saved samples to {save_path}")
         
     return save_path
