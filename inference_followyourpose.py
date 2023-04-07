@@ -43,7 +43,7 @@ class merge_config_then_run():
         bottom_crop=0,
     ):
         
-        default_edit_config='./FollowYourPose/configs/pose_sample.yaml'
+        default_edit_config='/home/user/app/FollowYourPose/FollowYourPose/configs/pose_sample.yaml'
         Omegadict_default_edit_config = OmegaConf.load(default_edit_config)
         
         dataset_time_string = get_time_string()
