@@ -14,41 +14,16 @@ def get_time_string() -> str:
 class merge_config_then_run():
     def __init__(self) -> None:
             # Load the tokenizer
-        # pretrained_model_path = 'FateZero/ckpt/stable-diffusion-v1-4'
         self.tokenizer = None
         self.text_encoder = None
         self.vae = None
         self.unet = None
         
-        # cache_ckpt = False
-        # if cache_ckpt:
-        #     self.tokenizer = AutoTokenizer.from_pretrained(
-        #         pretrained_model_path,
-        #         # 'FateZero/ckpt/stable-diffusion-v1-4',
-        #         subfolder="tokenizer",
-        #         use_fast=False,
-        #     )
-
-        #     # Load models and create wrapper for stable diffusion
-        #     self.text_encoder = CLIPTextModel.from_pretrained(
-        #         pretrained_model_path,
-        #         subfolder="text_encoder",
-        #     )
-
-        #     self.vae = AutoencoderKL.from_pretrained(
-        #         pretrained_model_path,
-        #         subfolder="vae",
-        #     )
-        #     model_config = {
-        #         "lora": 160,
-        #         # temporal_downsample_time: 4
-        #         "SparseCausalAttention_index": ['mid'],
-        #         "least_sc_channel": 640
-        #     }
-        #     self.unet = UNetPseudo3DConditionModel.from_2d_model(
-        #         os.path.join(pretrained_model_path, "unet"), model_config=model_config
-        #     )
-
+    def download_model(self):
+        REPO_ID = 'YueMafighting/FollowYourPose_v1'
+        hf_hub_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints', local_dir_use_symlinks=False)
+                
+            
     def run(
         self,
         data_path,
@@ -64,12 +39,12 @@ class merge_config_then_run():
         top_crop=0,
         bottom_crop=0,
     ):
+        self.download_model()
         default_edit_config='FollowYourPose/configs/pose_sample.yaml'
         Omegadict_default_edit_config = OmegaConf.load(default_edit_config)
         
         dataset_time_string = get_time_string()
         config_now = copy.deepcopy(Omegadict_default_edit_config)
-        # print(f"config_now['pretrained_model_path'] = model_id {model_id}")
 
         offset_dict = {
             "left": left_crop,

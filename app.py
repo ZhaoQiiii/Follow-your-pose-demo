@@ -9,15 +9,10 @@ import gradio as gr
 from inference_followyourpose import merge_config_then_run
 
 
-# TITLE = '# [FateZero](http://fate-zero-edit.github.io/)'
 HF_TOKEN = os.getenv('HF_TOKEN')
-# pipe = InferencePipeline(HF_TOKEN)
 pipe = merge_config_then_run()
-# app = InferenceUtil(HF_TOKEN)
 
 with gr.Blocks(css='style.css') as demo:
-    # gr.Markdown(TITLE)
-    
     gr.HTML(
     """
     <div style="text-align: center; max-width: 1200px; margin: 20px auto;">
@@ -134,11 +129,6 @@ with gr.Blocks(css='style.css') as demo:
 
             with gr.Accordion('Text Prompt', open=True):
 
-                # source_prompt = gr.Textbox(label='Source Prompt',
-                #                     info='A good prompt describes each frame and most objects in video. Especially, it has the object or attribute that we want to edit or preserve.',
-                #                     max_lines=1,
-                #                     placeholder='Example: "a silver jeep driving down a curvy road in the countryside"',
-                #                     value='a silver jeep driving down a curvy road in the countryside')
                 target_prompt = gr.Textbox(label='Target Prompt',
                                     info='A reasonable composition of video may achieve better results(e.g., "sunflower" video with "Van Gogh" prompt is better than "sunflower" with "Monet")',
                                     max_lines=1,
@@ -154,33 +144,6 @@ with gr.Blocks(css='style.css') as demo:
         with gr.Column():
             result = gr.Video(label='Result')
             # result.style(height=512, width=512)
-            # with gr.Accordion('FateZero Parameters for attention fusing', open=True):
-                # cross_replace_steps = gr.Slider(label='Cross-att replace steps',
-                #                 info='More steps, replace more cross attention to preserve semantic layout.',
-                #                 minimum=0.0,
-                #                 maximum=1.0,
-                #                 step=0.1,
-                #                 value=0.7)
-                
-                # self_replace_steps = gr.Slider(label='Self-att replace steps',
-                #                 info='More steps, replace more spatial-temporal self-attention to preserve geometry and motion.',
-                #                 minimum=0.0,
-                #                 maximum=1.0,
-                #                 step=0.1,
-                #                 value=0.7)
-                
-                # enhance_words = gr.Textbox(label='Enhanced words',
-                #                     info='Amplify the target-words cross attention',
-                #                     max_lines=1,
-                #                     placeholder='Example: "watercolor "',
-                #                     value='watercolor')
-
-                # enhance_words_value = gr.Slider(label='Target cross-att amplification',
-                #                 info='larger value, more elements of target words',
-                #                 minimum=0.0,
-                #                 maximum=20.0,
-                #                 step=1,
-                #                 value=10)
             with gr.Accordion('DDIM Parameters', open=True):
                 num_steps = gr.Slider(label='Number of Steps',
                                       info='larger value has better editing capacity, but takes more time and memory.',
@@ -208,4 +171,4 @@ with gr.Blocks(css='style.css') as demo:
     target_prompt.submit(fn=pipe.run, inputs=inputs, outputs=result)
     run_button.click(fn=pipe.run, inputs=inputs, outputs=result)
 
-demo.queue().launch(share=False, server_name='0.0.0.0', server_port=80)
+demo.queue().launch()
