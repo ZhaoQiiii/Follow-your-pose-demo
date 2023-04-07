@@ -1,3 +1,5 @@
 trash/*
 tmp
 gradio_cached_examples
+
+./FollowYourPose/checkpoints
