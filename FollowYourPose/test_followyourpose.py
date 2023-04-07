@@ -105,10 +105,6 @@ def test(
     text_encoder.requires_grad_(False)
 
     unet.requires_grad_(False)
-    # for name, module in unet.named_modules():
-    #     if name.endswith(tuple(trainable_modules)):
-    #         for params in module.parameters():
-    #             params.requires_grad = True
 
     if enable_xformers_memory_efficient_attention:
         if is_xformers_available():

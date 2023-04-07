@@ -159,8 +159,7 @@ with gr.Blocks(css='style.css') as demo:
     with gr.Row():
         from example import style_example
         examples = style_example
-
-
+                
     inputs = [
             user_input_video,
             target_prompt,

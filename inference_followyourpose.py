@@ -18,11 +18,11 @@ class merge_config_then_run():
         self.text_encoder = None
         self.vae = None
         self.unet = None
-        
-    def download_model(self):
+    
+    def download_model():
         REPO_ID = 'YueMafighting/FollowYourPose_v1'
-        snapshot_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints', local_dir_use_symlinks=False)
-                
+        snapshot_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints', local_dir_use_symlinks=False)    
+ 
             
     def run(
         self,
@@ -40,7 +40,7 @@ class merge_config_then_run():
         bottom_crop=0,
     ):
         self.download_model()
-        default_edit_config='FollowYourPose/configs/pose_sample.yaml'
+        default_edit_config='./FollowYourPose/configs/pose_sample.yaml'
         Omegadict_default_edit_config = OmegaConf.load(default_edit_config)
         
         dataset_time_string = get_time_string()
