@@ -130,10 +130,10 @@ with gr.Blocks(css='style.css') as demo:
             with gr.Accordion('Text Prompt', open=True):
 
                 target_prompt = gr.Textbox(label='Target Prompt',
-                                    info='A reasonable composition of video may achieve better results(e.g., "sunflower" video with "Van Gogh" prompt is better than "sunflower" with "Monet")',
+                                    info='The simple background may achieve better results(e.g., "beach", "moon" prompt is better than "street" and "market")',
                                     max_lines=1,
-                                    placeholder='Example: "watercolor painting of a silver jeep driving down a curvy road in the countryside"',
-                                    value='watercolor painting of a silver jeep driving down a curvy road in the countryside')
+                                    placeholder='Example: "Iron man on the beach"',
+                                    value='Iron man on the beach')
 
 
 

@@ -4,7 +4,7 @@ from FollowYourPose.test_followyourpose import *
 import copy
 import gradio as gr
 from transformers import AutoTokenizer, CLIPTextModel
-from huggingface_hub import hf_hub_download
+from huggingface_hub import snapshot_download
 
 def get_time_string() -> str:
     x = datetime.datetime.now()
@@ -21,7 +21,7 @@ class merge_config_then_run():
         
     def download_model(self):
         REPO_ID = 'YueMafighting/FollowYourPose_v1'
-        hf_hub_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints', local_dir_use_symlinks=False)
+        snapshot_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints', local_dir_use_symlinks=False)
                 
             
     def run(
