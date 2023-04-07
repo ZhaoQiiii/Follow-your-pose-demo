@@ -19,7 +19,7 @@ class merge_config_then_run():
         self.vae = None
         self.unet = None
     
-    def download_model():
+    def download_model(self):
         REPO_ID = 'YueMafighting/FollowYourPose_v1'
         snapshot_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints', local_dir_use_symlinks=False)    
  
@@ -39,7 +39,7 @@ class merge_config_then_run():
         top_crop=0,
         bottom_crop=0,
     ):
-        self.download_model()
+        
         default_edit_config='./FollowYourPose/configs/pose_sample.yaml'
         Omegadict_default_edit_config = OmegaConf.load(default_edit_config)
         
