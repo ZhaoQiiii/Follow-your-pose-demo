@@ -20,7 +20,7 @@ class merge_config_then_run():
         self.text_encoder = None
         self.vae = None
         self.unet = None
-        # self.download_model()
+        self.download_model()
     
     def download_model(self):
         REPO_ID = 'YueMafighting/FollowYourPose_v1'
