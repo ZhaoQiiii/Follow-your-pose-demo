@@ -5,6 +5,7 @@ import copy
 import gradio as gr
 from transformers import AutoTokenizer, CLIPTextModel
 from huggingface_hub import snapshot_download
+from inference_mmpose import *
 import sys
 sys.path.append('FollowYourPose')
 
@@ -21,10 +22,11 @@ class merge_config_then_run():
         self.vae = None
         self.unet = None
         self.download_model()
+        self.mmpose = gr.Interface.load(name="spaces/fffiloni/mmpose-estimation")
     
     def download_model(self):
         REPO_ID = 'YueMafighting/FollowYourPose_v1'
-        snapshot_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints/', local_dir_use_symlinks=False)    
+        snapshot_download(repo_id=REPO_ID, local_dir='./FollowYourPose/checkpoints/', local_dir_use_symlinks=False)     
  
             
     def run(
@@ -42,7 +44,7 @@ class merge_config_then_run():
         top_crop=0,
         bottom_crop=0,
     ):
-        
+        infer_skeleton(self.mmpose,data_path)
         default_edit_config='./FollowYourPose/configs/pose_sample.yaml'
         Omegadict_default_edit_config = OmegaConf.load(default_edit_config)
         
@@ -73,7 +75,7 @@ class merge_config_then_run():
         # ddim config
         config_now['validation_data']['guidance_scale'] = guidance_scale
         config_now['validation_data']['num_inference_steps'] = num_steps
-        config_now['skeleton_path'] = data_path
+        config_now['skeleton_path'] = './mmpose_result.mp4'
         
         save_path = test(**config_now)
         mp4_path = save_path.replace('_0.gif', '_0_0_0.mp4')
