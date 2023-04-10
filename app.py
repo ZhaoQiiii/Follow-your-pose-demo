@@ -69,7 +69,9 @@ with gr.Blocks(css='style.css') as demo:
 
 
     gr.HTML("""
-    <p>Alternatively, try our GitHub <a href=https://github.com/mayuelala/FollowYourPose> code  </a> on your GPU.
+    <p>In order to run the demo successfully, we recommend the length of video is about <b>3~5 seconds</b>.
+    The temporal crop offset and sampling stride are used to adjust the starting point and interval of video samples.
+    Alternatively, try our GitHub <a href=https://github.com/mayuelala/FollowYourPose> code  </a> on your GPU.
     </p>""")
 
     with gr.Row():
@@ -77,6 +79,12 @@ with gr.Blocks(css='style.css') as demo:
             with gr.Accordion('Input Video', open=True):
                 # user_input_video = gr.File(label='Input Source Video')
                 user_input_video = gr.Video(label='Input Source Video', source='upload', type='numpy', format="mp4", visible=True).style(height="auto")
+                video_type = gr.Dropdown(
+                  label='The type of input video',
+                  choices=[
+                      "Raw Video",
+                      "Skeleton Video"
+                  ], value="Raw Video")
                 with gr.Accordion('Temporal Crop offset and Sampling Stride', open=False):
                     n_sample_frame = gr.Slider(label='Number of Frames',
                                         minimum=0,
@@ -88,9 +96,6 @@ with gr.Blocks(css='style.css') as demo:
                                             maximum=20,
                                             step=1,
                                             value=1)
-                    start_sample_frame = gr.Number(label='Start frame in the video',
-                              value=0,
-                              precision=0)
 
                 with gr.Accordion('Spatial Crop offset', open=False):
                     left_crop = gr.Number(label='Left crop',
@@ -113,19 +118,10 @@ with gr.Blocks(css='style.css') as demo:
                     ]
                 
                 ImageSequenceDataset_list = [
-                   start_sample_frame,
                    n_sample_frame,
                    stride
                 ] + offset_list
                 
-                # model_id = gr.Dropdown(
-                #     label='Model ID',
-                #     choices=[
-                #         'CompVis/stable-diffusion-v1-4',
-                #         # add shape editing ckpt here
-                #     ],
-                #     value='CompVis/stable-diffusion-v1-4')
-
 
             with gr.Accordion('Text Prompt', open=True):
 
@@ -155,16 +151,16 @@ with gr.Blocks(css='style.css') as demo:
                                            minimum=0,
                                            maximum=50,
                                            step=0.1,
-                                           value=12.5)
+                                           value=12.0)
     with gr.Row():
         from example import style_example
         examples = style_example
-                
     inputs = [
             user_input_video,
             target_prompt,
             num_steps,
             guidance_scale,
+            video_type,
             *ImageSequenceDataset_list
     ]
     target_prompt.submit(fn=pipe.run, inputs=inputs, outputs=result)

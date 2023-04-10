@@ -35,6 +35,7 @@ class merge_config_then_run():
         target_prompt,
         num_steps,
         guidance_scale,
+        video_type,
         user_input_video=None,
         start_sample_frame=0,
         n_sample_frame=8,
@@ -44,7 +45,8 @@ class merge_config_then_run():
         top_crop=0,
         bottom_crop=0,
     ):
-        infer_skeleton(self.mmpose,data_path)
+        if video_type == "Raw Video":
+            infer_skeleton(self.mmpose, data_path)
         default_edit_config='./FollowYourPose/configs/pose_sample.yaml'
         Omegadict_default_edit_config = OmegaConf.load(default_edit_config)
         
@@ -75,7 +77,11 @@ class merge_config_then_run():
         # ddim config
         config_now['validation_data']['guidance_scale'] = guidance_scale
         config_now['validation_data']['num_inference_steps'] = num_steps
-        config_now['skeleton_path'] = './mmpose_result.mp4'
+        
+        if video_type == "Raw Video":
+            config_now['skeleton_path'] = './mmpose_result.mp4'
+        else:
+            config_now['skeleton_path'] = data_path
         
         save_path = test(**config_now)
         mp4_path = save_path.replace('_0.gif', '_0_0_0.mp4')
