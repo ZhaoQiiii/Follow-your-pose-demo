@@ -16,6 +16,11 @@ def get_frames(video_in):
     start_frame = 0  # 起始帧数
     end_frame = 50  # 结束帧数
     
+    if not os.path.exists('./raw_frames'):
+        os.makedirs('./raw_frames')
+    
+    if not os.path.exists('./mmpose_frames'):
+        os.makedirs('./mmpose_frames')
     
     #check fps
     if clip.fps > 30:
@@ -68,10 +73,6 @@ def create_video(frames, fps, type):
     
     return type + "_result.mp4"
 
-def convertG2V(imported_gif):
-    clip = VideoFileClip(imported_gif.name)
-    clip.write_videofile("my_gif_video.mp4")
-    return "my_gif_video.mp4"
     
 def infer_skeleton(mmpose, video_in):
     
