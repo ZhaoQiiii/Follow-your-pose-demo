@@ -7,7 +7,8 @@ import os
 import gradio as gr
 
 from inference_followyourpose import merge_config_then_run
-
+import sys
+sys.path.append('FollowYourPose')
 
 HF_TOKEN = os.getenv('HF_TOKEN')
 pipe = merge_config_then_run()
@@ -155,6 +156,20 @@ with gr.Blocks(css='style.css') as demo:
     with gr.Row():
         from example import style_example
         examples = style_example
+        
+        gr.Examples(examples=examples,
+                    inputs = [
+                        user_input_video,
+                        target_prompt,
+                        num_steps,
+                        guidance_scale,
+                        video_type,
+                        *ImageSequenceDataset_list
+                    ],
+                    outputs=result,
+                    fn=pipe.run,
+                    cache_examples=True,
+                    )
     inputs = [
             user_input_video,
             target_prompt,

@@ -175,7 +175,7 @@ def test(
                                         skeleton_path=skeleton_path,
                                         **validation_data).videos
             save_path = f"{output_dir}/inference/sample-{global_step}-{str(seed)}-{now}/{prompt}.gif"
-            save_videos_grid(sample, save_path)
+            save_videos_grid(sample, save_path, fps=4)
         #     samples.append(sample)
         # samples = torch.concat(samples)
         # save_path = f"{output_dir}/inference/sample-{global_step}-{str(seed)}-{now}.mp4"
