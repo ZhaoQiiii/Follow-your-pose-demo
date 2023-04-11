@@ -91,7 +91,9 @@ with gr.Blocks(css='style.css') as demo:
     Due to the GPU limit of this demo, it currently generates 8-frame videos. For generating longer videos (e.g. 32 frames) shown on our webpage, we recommend trying our GitHub <a href=https://github.com/mayuelala/FollowYourPose> code  </a> on your own GPU.
     </p>
     <p>You may duplicate the space and upgrade to GPU in settings for better performance and faster inference without waiting in the queue.</p>
+    <br/>
     <a href="https://huggingface.co/spaces/YueMafighting/FollowYourPose?duplicate=true">
+    <img style="margin-top: 0em; margin-bottom: 0em" src="https://bit.ly/3gLdBN6" alt="Duplicate Space"></a>
     """)
 
     with gr.Row():
