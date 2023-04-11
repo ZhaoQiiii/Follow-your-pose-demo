@@ -52,7 +52,7 @@ RUN pip install --no-cache-dir -U -r /tmp/requirements.txt
 COPY --chown=1000 . ${HOME}/app
 RUN ls -a
 # RUN cd ./FateZero/ckpt && bash download.sh
-RUN cd ./FollowYourPose/data && bash download.sh
+RUN cd {WORKDIR}/data && bash download.sh
 ENV PYTHONPATH=${HOME}/app \
     PYTHONUNBUFFERED=1 \
     GRADIO_ALLOW_FLAGGING=never \
