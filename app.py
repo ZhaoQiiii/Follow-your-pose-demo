@@ -13,6 +13,11 @@ sys.path.append('FollowYourPose')
 HF_TOKEN = os.getenv('HF_TOKEN')
 pipe = merge_config_then_run()
 
+
+current_dir = os.getcwd()
+print("path is :", current_dir)
+
+
 with gr.Blocks(css='style.css') as demo:
     gr.HTML(
     """
