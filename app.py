@@ -88,7 +88,7 @@ with gr.Blocks(css='style.css') as demo:
     gr.HTML("""
     <p>In order to run the demo successfully, we recommend the length of video is about <b>3~5 seconds</b>.
     The temporal crop offset and sampling stride are used to adjust the starting point and interval of video samples.
-    Alternatively, try our GitHub <a href=https://github.com/mayuelala/FollowYourPose> code  </a> on your GPU.
+    Due to the GPU limit of this demo, it currently generates 8-frame videos. For generating longer videos (e.g. 32 frames) shown on our webpage, we recommend trying our GitHub <a href=https://github.com/mayuelala/FollowYourPose> code  </a> on your own GPU.
     </p>""")
 
     with gr.Row():
