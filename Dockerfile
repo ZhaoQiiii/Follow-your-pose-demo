@@ -51,8 +51,8 @@ RUN pip install --no-cache-dir -U -r /tmp/requirements.txt
 
 COPY --chown=1000 . ${HOME}/app
 RUN ls -a
-RUN cd ./FateZero/ckpt && bash download.sh
-RUN cd ./FateZero/data && bash download.sh
+# RUN cd ./FateZero/ckpt && bash download.sh
+RUN cd ./data && bash download.sh
 ENV PYTHONPATH=${HOME}/app \
     PYTHONUNBUFFERED=1 \
     GRADIO_ALLOW_FLAGGING=never \
@@ -60,4 +60,4 @@ ENV PYTHONPATH=${HOME}/app \
     GRADIO_SERVER_NAME=0.0.0.0 \
     GRADIO_THEME=huggingface \
     SYSTEM=spaces
-CMD ["python", "app_fatezero.py"]
+CMD ["python", "app.py"]
