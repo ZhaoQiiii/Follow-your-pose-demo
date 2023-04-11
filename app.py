@@ -12,17 +12,14 @@ import subprocess
 sys.path.append('FollowYourPose')
 
 
+result = subprocess.run(['bash', './data/download.sh'], stdout=subprocess.PIPE)
+result.stdout.decode()
+
 current_dir = os.getcwd()
 print("path is :", current_dir)
 print("current_dir i :", os.listdir(current_dir))
 print("dir i :", os.listdir(os.path.join(current_dir,'data')))
-
-
-#  /home/user/app/data/download.sh
-
-result = subprocess.run(['bash', './data/download.sh'], stdout=subprocess.PIPE)
-result.stdout.decode()
-
+print("dir 222 :", os.listdir(os.path.join(current_dir,'data/example_video')))
 
 HF_TOKEN = os.getenv('HF_TOKEN')
 pipe = merge_config_then_run()
