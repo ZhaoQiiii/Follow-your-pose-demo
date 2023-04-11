@@ -13,7 +13,7 @@ sys.path.append('FollowYourPose')
 
 current_dir = os.getcwd()
 print("path is :", current_dir)
-print("dir i :", os.listdir(os.path.join(current_dir,'data'))
+print("dir i :", os.listdir(os.path.join(current_dir,'data')))
 
 HF_TOKEN = os.getenv('HF_TOKEN')
 pipe = merge_config_then_run()
