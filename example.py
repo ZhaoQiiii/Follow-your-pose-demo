@@ -12,7 +12,7 @@ style_example = [
                 8,1,0,0,0,0
             ],
             [
-                ".data/example_video/dancing_example_2.mp4",
+                "./data/example_video/dancing_example_2.mp4",
                 "A man in the beach, Van Gogh style",
                 50,
                 12,
