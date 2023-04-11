@@ -4,7 +4,7 @@ sys.path.append('FollowYourPose')
 num_steps = 30
 style_example = [
             [
-                "./data/dancing_example_1.mp4",
+                "./data/example_video/dancing_example_1.mp4",
                 "Iron man in the beach",
                 50,
                 12,
@@ -12,7 +12,7 @@ style_example = [
                 8,1,0,0,0,0
             ],
             [
-                ".data/dancing_example_2.mp4",
+                ".data/example_video/dancing_example_2.mp4",
                 "A man in the beach, Van Gogh style",
                 50,
                 12,
@@ -20,7 +20,7 @@ style_example = [
                 8,1,0,0,0,0
             ],
             [
-                "./data/dancing_example_3.mp4",
+                "./data/example_video/dancing_example_3.mp4",
                 "Astronauts on the moon",
                 50,
                 12,
@@ -28,7 +28,7 @@ style_example = [
                 8,1,0,0,0,0
             ],
             [
-                "./data/dancing_example_4.mp4",
+                "./data/example_video/dancing_example_4.mp4",
                 "Superman on the forest",
                 50,
                 12,
@@ -36,7 +36,7 @@ style_example = [
                 8,1,0,0,0,0
             ],
             [
-                "./data/dancing_example_5.mp4",
+                "./data/example_video/dancing_example_5.mp4",
                 "Hulk on the sea",
                 50,
                 12,

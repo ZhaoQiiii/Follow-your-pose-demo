@@ -8,12 +8,21 @@ import gradio as gr
 
 from inference_followyourpose import merge_config_then_run
 import sys
+import subprocess
 sys.path.append('FollowYourPose')
 
 
 current_dir = os.getcwd()
 print("path is :", current_dir)
+print("current_dir i :", os.listdir(current_dir,'data'))
 print("dir i :", os.listdir(os.path.join(current_dir,'data')))
+
+
+#  /home/user/app/data/download.sh
+
+result = subprocess.run(['bash', './data/download.sh'], stdout=subprocess.PIPE)
+result.stdout.decode()
+
 
 HF_TOKEN = os.getenv('HF_TOKEN')
 pipe = merge_config_then_run()
