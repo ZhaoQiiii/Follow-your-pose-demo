@@ -89,7 +89,10 @@ with gr.Blocks(css='style.css') as demo:
     <p>In order to run the demo successfully, we recommend the length of video is about <b>3~5 seconds</b>.
     The temporal crop offset and sampling stride are used to adjust the starting point and interval of video samples.
     Due to the GPU limit of this demo, it currently generates 8-frame videos. For generating longer videos (e.g. 32 frames) shown on our webpage, we recommend trying our GitHub <a href=https://github.com/mayuelala/FollowYourPose> code  </a> on your own GPU.
-    </p>""")
+    </p>
+    <p>You may duplicate the space and upgrade to GPU in settings for better performance and faster inference without waiting in the queue.</p>
+    <a href="https://huggingface.co/spaces/YueMafighting/FollowYourPose?duplicate=true">
+    """)
 
     with gr.Row():
         with gr.Column():
