@@ -10,12 +10,14 @@ from inference_followyourpose import merge_config_then_run
 import sys
 sys.path.append('FollowYourPose')
 
-HF_TOKEN = os.getenv('HF_TOKEN')
-pipe = merge_config_then_run()
-
 
 current_dir = os.getcwd()
 print("path is :", current_dir)
+print("dir i :", os.listdir(current_dir))
+
+HF_TOKEN = os.getenv('HF_TOKEN')
+pipe = merge_config_then_run()
+
 
 
 with gr.Blocks(css='style.css') as demo:
