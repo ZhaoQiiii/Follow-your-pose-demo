@@ -13,7 +13,6 @@ sys.path.append('FollowYourPose')
 
 
 result = subprocess.run(['bash', './data/download.sh'], stdout=subprocess.PIPE)
-result.stdout.decode()
 
 current_dir = os.getcwd()
 print("path is :", current_dir)
