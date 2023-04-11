@@ -14,7 +14,7 @@ sys.path.append('FollowYourPose')
 
 current_dir = os.getcwd()
 print("path is :", current_dir)
-print("current_dir i :", os.listdir(current_dir,'data'))
+print("current_dir i :", os.listdir(current_dir))
 print("dir i :", os.listdir(os.path.join(current_dir,'data')))
 
 
