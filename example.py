@@ -19,29 +19,29 @@ style_example = [
                 "Skeleton Video",
                 8,1,0,0,0,0
             ],
-            # [
-            #     "./data/example_video/dancing_example_3.mp4",
-            #     "Astronauts on the moon",
-            #     50,
-            #     12,
-            #     "Skeleton Video",
-            #     8,1,0,0,0,0
-            # ],
-            # [
-            #     "./data/example_video/dancing_example_4.mp4",
-            #     "Superman on the forest",
-            #     50,
-            #     12,
-            #     "Raw Video",
-            #     8,1,0,0,0,0
-            # ],
-            # [
-            #     "./data/example_video/dancing_example_5.mp4",
-            #     "Hulk on the sea",
-            #     50,
-            #     12,
-            #     "Raw Video",
-            #     8,1,0,0,0,0
-            # ]
+            [
+                "./data/example_video/dancing_example_3.mp4",
+                "Astronauts on the moon",
+                50,
+                12,
+                "Skeleton Video",
+                8,1,0,0,0,0
+            ],
+            [
+                "./data/example_video/dancing_example_4.mp4",
+                "Superman on the forest",
+                50,
+                12,
+                "Raw Video",
+                8,1,0,0,0,0
+            ],
+            [
+                "./data/example_video/dancing_example_5.mp4",
+                "Hulk on the sea",
+                50,
+                12,
+                "Raw Video",
+                8,1,0,0,0,0
+            ]
 
 ]
