@@ -32,6 +32,7 @@ RUN apt-get update && \
 #     apt-get install zip
 # RUN wget https://github.com/ChenyangQiQi/FateZero/releases/download/v0.0.1/style.zip && unzip style.zip 
 RUN useradd -m -u 1000 user
+RUN sudo apt-get install unzip
 USER user
 ENV HOME=/home/user \
     PATH=/home/user/.local/bin:${PATH}
