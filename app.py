@@ -20,9 +20,9 @@ subprocess.run(['unzip', zip_file, '-d', output_dir])
 
 current_dir = os.getcwd()
 print("path is :", current_dir)
-print("current_dir i :", os.listdir(current_dir))
-print("dir i :", os.listdir(os.path.join(current_dir,'data')))
-print("dir 222 :", os.listdir(os.path.join(current_dir,'data/example_video')))
+print("current_dir is :", os.listdir(current_dir))
+print("dir is :", os.listdir(os.path.join(current_dir,'data')))
+print("data/example_video is :", os.listdir(os.path.join(current_dir,'data/example_video')))
 
 HF_TOKEN = os.getenv('HF_TOKEN')
 pipe = merge_config_then_run()
