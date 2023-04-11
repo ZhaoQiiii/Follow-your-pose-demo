@@ -8,14 +8,14 @@ import gradio as gr
 
 from inference_followyourpose import merge_config_then_run
 import sys
-import subprocess
+
 sys.path.append('FollowYourPose')
 
 
 # result = subprocess.run(['bash', './data/download.sh'], stdout=subprocess.PIPE)
-
+import subprocess
 zip_file = './example_video.zip'
-output_dir = '/home/user/app/data'
+output_dir = './data'
 subprocess.run(['unzip', zip_file, '-d', output_dir])
 
 current_dir = os.getcwd()
